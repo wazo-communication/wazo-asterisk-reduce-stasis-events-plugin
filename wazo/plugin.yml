@@ -1,0 +1,10 @@
+name: wazo-asterisk-reduce-stasis-events
+namespace: wazocommunication
+version: 1.0.0
+author: Wazo authors
+display_name: Asterisk Stasis Events Reduction
+min_wazo_version: 24.01
+tags:
+  - asterisk
+  - mitigation
+homepage: https://github.com/wazo-communication/wazo-asterisk-reduce-stasis-events-plugin

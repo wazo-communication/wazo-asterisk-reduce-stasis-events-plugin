@@ -1,0 +1,32 @@
+#!/bin/sh
+# Copyright 2024 The Wazo Authors  (see the AUTHORS file)
+# SPDX-License-Identifier: GPL-3.0+
+
+case "$1" in
+    build)
+        ;;
+
+    package)
+        mkdir -p ${pkgdir}/usr/lib/wazo-asterisk-reduce-stasis-events
+        cp res_stasis_amqp.so ${pkgdir}/usr/lib/wazo-asterisk-reduce-stasis-events/res_stasis_amqp.so
+        ;;
+
+    install)
+        mkdir -p /var/backups/
+        cp /usr/lib/asterisk/modules/res_stasis_amqp.so /var/backups/
+        asterisk -rx 'module unload res_stasis_amqp'
+        cp /usr/lib/wazo-asterisk-reduce-stasis-events/res_stasis_amqp.so /usr/lib/asterisk/modules/res_stasis_amqp.so
+        systemctl restart asterisk
+        ;;
+
+    uninstall)
+        asterisk -rx 'module unload res_stasis_amqp'
+        mv /var/backups/res_stasis_amqp.so /usr/lib/asterisk/modules/res_stasis_amqp.so
+        systemctl restart asterisk
+        ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
