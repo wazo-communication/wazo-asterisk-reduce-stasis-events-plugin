@@ -5,11 +5,11 @@ Reduce the number of events sent by Asterisk, reducing the total load on the sys
 ## Installation
 
 ```sh
-wazo-plugind-cli -c "install git https://github.com/wazo-communication/wazo-asterisk-reduce-events-plugin"
+wazo-plugind-cli -c "install git https://github.com/wazo-communication/wazo-asterisk-reduce-stasis-events-plugin"
 ```
 
 ## Uninstallation
 
 ```sh
-wazo-plugind-cli -c 'uninstall wazocommunication/wazo-asterisk-reduce-events'
+wazo-plugind-cli -c 'uninstall wazocommunication/wazo-asterisk-reduce-stasis-events'
 ```
