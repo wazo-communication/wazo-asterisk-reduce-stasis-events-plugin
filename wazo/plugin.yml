@@ -4,6 +4,7 @@ version: 1.0.0
 author: Wazo authors
 display_name: Asterisk Stasis Events Reduction
 min_wazo_version: 24.01
+max_wazo_version: 24.03
 tags:
   - asterisk
   - mitigation
